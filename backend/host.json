@@ -1,0 +1,27 @@
+{
+  "version": "2.0",
+  "extensions": {
+    "http": {
+      "routePrefix": "api",
+      "maxOutstandingRequests": 20,
+      "maxConcurrentRequests": 10
+    }
+  },  
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond": 5,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  },
+  "cors": {
+    "origins": [ "http://localhost:5173" ],
+    "supportCredentials": true
+  }
+}
