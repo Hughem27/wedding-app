@@ -1,0 +1,1 @@
+This repository is focused on making an application that allows wedding guests to scan a QR code which brings them to a web application that allows them to upload photos and view photos from the wedding. The backend API is build using Azure Functions to service Azure Blobs
