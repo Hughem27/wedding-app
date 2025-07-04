@@ -6,7 +6,8 @@ function UploadForm() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
 
-  console.log("API: " + API_BASE);
+  console.log("API_Base: " + API_BASE);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
