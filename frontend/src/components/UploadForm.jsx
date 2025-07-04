@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import API_BASE from UploadForm
+import { API_BASE } from '../api/config';
+
 
 function UploadForm() {
   const [file, setFile] = useState(null);
