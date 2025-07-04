@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-const API_BASE = 'https://weddingphotoapi-hugh-hannah.azurewebsites.net/api';
-
 
 function Slideshow() {
   const [images, setImages] = useState([]);

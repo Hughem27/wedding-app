@@ -5,3 +5,7 @@ dist/
 .vscode/
 
 backend/local.settings.json
+
+.env
+
+.env.production
