@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { API_BASE } from './api/config.js'
+import { API_BASE } from '../api/config.js'
 
 
 function UploadForm() {
