@@ -6,13 +6,15 @@ function UploadForm() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
 
+  console.log("API: " + API_BASE);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!file) return;
 
     setMessage('Getting upload URL...');
 
-    // Step 1: Request a SAS upload URL from your backend
+    // Request a SAS upload URL from backend
     const res = await fetch(`${API_BASE}/UploadMedia`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -23,7 +25,7 @@ function UploadForm() {
 
     setMessage('Uploading...');
 
-    // Step 2: Upload the file directly to Azure Blob Storage
+    // Upload the file to Azure Blob Storage
     const uploadRes = await fetch(uploadUrl, {
       method: 'PUT',
       headers: { 'x-ms-blob-type': 'BlockBlob' },
