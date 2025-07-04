@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 
+const API_BASE = 'https://weddingphotoapi-hugh-hannah.azurewebsites.net/api';
+
+
 function Slideshow() {
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     // Fetch image list on mount
-    fetch('http://localhost:7071/api/ListMedia')
+    fetch(`${API_BASE}/ListMedia`)
       .then(res => res.json())
       .then(data => {
         if (data.images) {

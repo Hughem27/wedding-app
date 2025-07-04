@@ -6,6 +6,7 @@ const accountName = process.env.STORAGE_ACCOUNT_NAME;
 const accountKey = process.env.STORAGE_ACCOUNT_KEY;
 const containerName = "hugh-and-hannah";
 
+
 app.http('UploadMedia', {
     methods: ['POST'],
     authLevel: 'anonymous',
@@ -38,8 +39,8 @@ app.http('UploadMedia', {
             protocol: SASProtocol.Https
         }, sharedKeyCredential).toString();
 
-        const uploadUrl = `${blobClient.url}?${sasToken}`;
-
+        const uploadUrl = `${blobClient.url}?${sasToken}`;      
+        
         return {
             status: 200,
             jsonBody: { uploadUrl }

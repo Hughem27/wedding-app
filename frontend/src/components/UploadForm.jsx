@@ -11,7 +11,7 @@ function UploadForm() {
     setMessage('Getting upload URL...');
 
     // Step 1: Request a SAS upload URL from your backend
-    const res = await fetch('http://localhost:7071/api/UploadMedia', {
+    const res = await fetch(`${API_BASE}/UploadMedia`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ fileName: file.name }),

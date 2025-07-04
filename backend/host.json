@@ -21,7 +21,10 @@
     "version": "[4.*, 5.0.0)"
   },
   "cors": {
-    "origins": [ "http://localhost:5173" ],
+    "origins": [ 
+      "http://localhost:5173",
+      "https://orange-moss-0acff6703.2.azurestaticapps.net" 
+    ],
     "supportCredentials": true
   }
 }
