@@ -10,8 +10,7 @@ function App() {
         <h1>Welcome to Hugh and Hannah's Wedding!</h1>
       </header>
       <main className="app-main">
-        <section className="app-upload-section">
-          <h3>Upload Your Photo Here!</h3>
+        <section className="app-upload-section">          
           <UploadForm />
         </section>
         <section className="app-slideshow-section">

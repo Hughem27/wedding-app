@@ -42,17 +42,33 @@ function UploadForm() {
 
   return (
     <div className="upload-root">
+      <h3>Upload Your Photo Here!</h3>
       <form className="upload-form" onSubmit={handleSubmit}>
-        <label className="upload-label">
-          <span>Select an image to upload:</span>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setFile(e.target.files[0])}
-            className="upload-input"
-          />
-        </label>
-        <button className="upload-btn" type="submit">Upload</button>
+        <div className={`upload-label-row${file ? ' has-file' : ''}`}>
+          <label className="upload-label" style={{ flex: 1 }}>
+            <span>Select an image to upload:</span>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setFile(e.target.files[0])}
+              className="upload-input"
+            />
+          </label>
+         
+        </div>
+        {file && (
+          <div className="upload-preview">
+            <div className="upload-preview-img-wrapper">
+              <img
+                src={URL.createObjectURL(file)}
+                alt={file.name}
+                className="upload-preview-img"
+              />
+            </div>
+            <div className="upload-preview-name">{file.name}</div>
+          </div>
+        )}
+        <button className="upload-btn" type="submit" disabled={!file}>Upload</button>
         <p className="upload-message">{message}</p>
       </form>
     </div>

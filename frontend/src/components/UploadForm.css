@@ -1,13 +1,112 @@
+/* Row for file input and remove button */
+.upload-label-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 0.7rem;
+}
+
+
+
+.upload-remove-btn {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #e53e3e;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+  transition: background 0.2s;
+  display: none;
+  margin-left: auto;
+}
+
+.upload-label-row.has-file .upload-remove-btn {
+  display: block;
+}
+
+.upload-remove-btn:hover {
+  background: #b91c1c;
+}
+
+.upload-preview-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+
+.upload-remove-btn {
+  margin-top: 0.7rem;
+  padding: 0.7rem 2.2rem;
+  border: none;
+  border-radius: 0.7rem;
+  background: #e53e3e;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+  transition: background 0.2s;
+  display: block;
+}
+
+.upload-remove-btn:hover {
+  background: #b91c1c;
+}
+
+.upload-preview {
+  margin: 1rem 0 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+/* Preview of selected image */
+.upload-preview {
+  margin: 1rem 0 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-preview-img {
+  max-width: 220px;
+  max-height: 180px;
+  border-radius: 0.7rem;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+  object-fit: contain;
+}
+
+.upload-preview-name {
+  font-size: 0.95rem;
+  color: #2d3748;
+  word-break: break-all;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .upload-preview-img {
+    max-width: 120px;
+    max-height: 90px;
+    border-radius: 0.5rem;
+  }
+  .upload-preview-name {
+    font-size: 0.85rem;
+  }
+}
 .upload-root {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
   padding: 2rem;
   border-radius: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
   margin-top: 2rem;
 }
 
@@ -78,6 +177,7 @@
   background: #f8fafc;
 }
 
+
 .upload-btn {
   margin-top: 1.2rem;
   padding: 0.7rem 2.2rem;
@@ -90,6 +190,13 @@
   cursor: pointer;
   box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
   transition: background 0.2s;
+}
+
+.upload-btn:disabled {
+  background: #cbd5e1;
+  color: #6b7280;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .upload-btn:hover {
