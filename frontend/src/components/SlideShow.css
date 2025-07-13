@@ -39,9 +39,13 @@
 }
 .slideshow-root {
   min-height: 100vh;
-  padding: 2rem;
-  overflow: hidden; /* prevent overflow from oversized images */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
 }
+
 
 
 @media (max-width: 700px) {
@@ -93,18 +97,17 @@
   letter-spacing: 0.05em;
 }
 
+
 .slideshow-image-container {
   width: 100%;
   max-width: 900px;
-  height: 500px; 
+  height: 500px; /* This locks the vertical size */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  overflow: hidden; /* Prevents overflow from images */
   background: rgba(255,255,255,0.85);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
   border-radius: 1.5rem;
-  overflow: hidden;
   position: relative;
 }
 
@@ -112,8 +115,11 @@
 .slideshow-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* CHANGED */
-  border-radius: 0;
-  box-shadow: none;
+  object-fit: cover;
+  display: block;
 }
+
+
+
+
 

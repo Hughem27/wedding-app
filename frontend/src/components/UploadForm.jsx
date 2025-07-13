@@ -3,7 +3,7 @@ import { useState } from "react";
 import { API_BASE } from "../api/config.js";
 import "./UploadForm.css";
 
-function UploadForm() {
+function UploadForm({ onUploadComplete }) {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
 
@@ -35,6 +35,7 @@ function UploadForm() {
 
     if (uploadRes.ok) {
       setMessage("Upload successful!");
+      if (onUploadComplete) onUploadComplete();
     } else {
       setMessage("Upload failed.");
     }
