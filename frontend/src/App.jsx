@@ -2,6 +2,8 @@ import UploadForm from "./components/UploadForm";
 import Slideshow from "./components/SlideShow";
 import { useRef } from "react";
 import "./App.css";
+import FooterQR from "./components/Footer";
+import './components/Footer.css';
 
 function App() {
   const slideshowRef = useRef();
@@ -26,7 +28,7 @@ function App() {
             </span>
           </div>
           <div className="header-text">
-            <h1 className="header-title">Hugh & Hannah's Wedding</h1>
+            <h1 className="header-title">Hannah & Hugh's Wedding</h1>
             {/* <p className="header-subtitle">Share your memories and enjoy the day</p> */}
           </div>
         </div>
@@ -37,7 +39,8 @@ function App() {
         </section>
         <section className="app-slideshow-section">
           <Slideshow ref={slideshowRef} />
-        </section>        
+        </section>
+        <FooterQR></FooterQR>        
       </main>      
     </div>
   );
