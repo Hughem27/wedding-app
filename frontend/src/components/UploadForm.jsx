@@ -43,11 +43,12 @@ function UploadForm({ onUploadComplete }) {
 
   return (
     <div className="upload-root">
-      <h3>Upload Your Photo Here!</h3>
+      <h2 className="slideshow-title">Upload Images</h2>
+
       <form className="upload-form" onSubmit={handleSubmit}>
         <div className={`upload-label-row${file ? " has-file" : ""}`}>
           <label className="upload-label" style={{ flex: 1 }}>
-            <span>Select an image to upload:</span>
+            <span>Select an image to upload below:</span>
             <input
               type="file"
               accept="image/*"
