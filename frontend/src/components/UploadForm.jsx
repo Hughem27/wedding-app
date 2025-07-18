@@ -2,6 +2,7 @@ import { useState } from "react";
 import { API_BASE } from "../api/config.js";
 import "./UploadForm.css";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
+import CameraAltTwoToneIcon from '@mui/icons-material/CameraAltTwoTone';
 
 function UploadForm({ onUploadComplete }) {
   const [file, setFile] = useState(null);
@@ -43,7 +44,7 @@ function UploadForm({ onUploadComplete }) {
 
   return (
     <div className="upload-root">
-      <h2 className="slideshow-title">Upload Images</h2>
+      <h2 className="slideshow-title"> <CameraAltTwoToneIcon fontSize="inherit"></CameraAltTwoToneIcon> Upload Images</h2>
 
       <form className="upload-form" onSubmit={handleSubmit}>
         <div className={`upload-label-row${file ? " has-file" : ""}`}>

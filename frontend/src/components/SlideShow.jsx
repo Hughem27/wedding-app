@@ -4,6 +4,7 @@ import "./SlideShow.css";
 import DownloadIcon from "@mui/icons-material/Download";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import SlideshowTwoToneIcon from '@mui/icons-material/SlideshowTwoTone';
 
 function Slideshow() {
   const [images, setImages] = useState([]);
@@ -51,7 +52,7 @@ function Slideshow() {
 
   return (
     <div className="slideshow-root">
-      <h2 className="slideshow-title">Wedding Slideshow</h2>
+      <h2 className="slideshow-title"> <SlideshowTwoToneIcon fontSize="inherit"></SlideshowTwoToneIcon> Wedding Slideshow</h2>
       <div
         className="slideshow-image-container"
         style={{ position: "relative", overflow: "hidden" }}
