@@ -1,7 +1,7 @@
-
 import { useState } from "react";
 import { API_BASE } from "../api/config.js";
 import "./UploadForm.css";
+import FileUploadIcon from "@mui/icons-material/FileUpload";
 
 function UploadForm({ onUploadComplete }) {
   const [file, setFile] = useState(null);
@@ -45,7 +45,7 @@ function UploadForm({ onUploadComplete }) {
     <div className="upload-root">
       <h3>Upload Your Photo Here!</h3>
       <form className="upload-form" onSubmit={handleSubmit}>
-        <div className={`upload-label-row${file ? ' has-file' : ''}`}>
+        <div className={`upload-label-row${file ? " has-file" : ""}`}>
           <label className="upload-label" style={{ flex: 1 }}>
             <span>Select an image to upload:</span>
             <input
@@ -55,7 +55,6 @@ function UploadForm({ onUploadComplete }) {
               className="upload-input"
             />
           </label>
-         
         </div>
         {file && (
           <div className="upload-preview">
@@ -69,7 +68,10 @@ function UploadForm({ onUploadComplete }) {
             <div className="upload-preview-name">{file.name}</div>
           </div>
         )}
-        <button className="upload-btn" type="submit" disabled={!file}>Upload</button>
+        <button className="upload-btn" type="submit" disabled={!file}>
+          Upload <br></br>
+          <FileUploadIcon></FileUploadIcon>
+        </button>
         <p className="upload-message">{message}</p>
       </form>
     </div>

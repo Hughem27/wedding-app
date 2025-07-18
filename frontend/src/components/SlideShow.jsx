@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { API_BASE } from "../api/config";
 import "./SlideShow.css";
+import DownloadIcon from "@mui/icons-material/Download";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 function Slideshow() {
   const [images, setImages] = useState([]);
@@ -49,7 +52,10 @@ function Slideshow() {
   return (
     <div className="slideshow-root">
       <h2 className="slideshow-title">Wedding Slideshow</h2>
-      <div className="slideshow-image-container" style={{ position: "relative", overflow: "hidden" }}>
+      <div
+        className="slideshow-image-container"
+        style={{ position: "relative", overflow: "hidden" }}
+      >
         {prevIndex !== null && (
           <img
             src={images[prevIndex]}
@@ -73,20 +79,28 @@ function Slideshow() {
           key={currentIndex}
         />
       </div>
-      <div className="slideshow-controls" style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "1rem" }}>
+      <div
+        className="slideshow-controls"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "1rem",
+          marginTop: "1rem",
+        }}
+      >
         <button
           className="slideshow-nav-btn prev"
           onClick={goToPrev}
           aria-label="Previous photo"
         >
-          &#8592;
+          <NavigateBeforeIcon></NavigateBeforeIcon>
         </button>
         <button
           className="slideshow-nav-btn next"
           onClick={goToNext}
           aria-label="Next photo"
         >
-          &#8594;
+          <NavigateNextIcon></NavigateNextIcon>
         </button>
       </div>
       <button
@@ -102,7 +116,8 @@ function Slideshow() {
           document.body.removeChild(link);
         }}
       >
-        Download This Photo
+        Download this image <br></br>
+        <DownloadIcon></DownloadIcon>
       </button>
     </div>
   );
