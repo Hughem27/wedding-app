@@ -60,10 +60,10 @@ function UploadForm({ onUploadComplete }) {
       <form className="upload-form" onSubmit={handleSubmit}>
         <div className={`upload-label-row${files.length ? " has-file" : ""}`}>
           <label className="upload-label" style={{ flex: 1 }}>
-            <span>Select images to upload below:</span>
+            <span>Select images or videos to upload below:</span>
             <input
               type="file"
-              accept="image/*"
+              accept="image/*,video/*"
               multiple
               onChange={handleFileChange}
               className="upload-input"
@@ -74,11 +74,19 @@ function UploadForm({ onUploadComplete }) {
           <div className="upload-preview">
             {files.map((file, idx) => (
               <div className="upload-preview-img-wrapper" key={idx}>
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt={file.name}
-                  className="upload-preview-img"
-                />
+                {file.type.startsWith("image/") ? (
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt={file.name}
+                    className="upload-preview-img"
+                  />
+                ) : (
+                  <video
+                    src={URL.createObjectURL(file)}
+                    controls
+                    className="upload-preview-img"
+                  />
+                )}
                 <div className="upload-preview-name">{file.name}</div>
                 <button
                   type="button"
