@@ -53,55 +53,55 @@ function Slideshow() {
   return (
     <div className="slideshow-root">
       <h2 className="slideshow-title"> <SlideshowTwoToneIcon fontSize="inherit"></SlideshowTwoToneIcon> Wedding Slideshow</h2>
-      <div
-        className="slideshow-image-container"
-        style={{ position: "relative", overflow: "hidden" }}
-      >
+      <div className="slideshow-image-container" style={{ position: "relative", overflow: "hidden" }}>
         {prevIndex !== null && (
           <img
             src={images[prevIndex]}
             alt={`Slide ${prevIndex}`}
-            className={`slideshow-image ${
-              slideDirection === "left" ? "slide-out-left" : "slide-out-right"
-            }`}
+            className="slideshow-image"
             key={prevIndex}
           />
         )}
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex}`}
-          className={`slideshow-image ${
-            slideDirection === "left"
-              ? "slide-in-right"
-              : slideDirection === "right"
-              ? "slide-in-left"
-              : ""
-          }`}
+          className="slideshow-image"
           key={currentIndex}
         />
       </div>
-      <div
-        className="slideshow-controls"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "1rem",
-          marginTop: "1rem",
-        }}
-      >
+      {/* Image preview scrollbar */}
+      <div className="slideshow-preview-bar">
+        {images.map((img, idx) => (
+          <button
+            key={idx}
+            className={`slideshow-preview-thumb${idx === currentIndex ? " active" : ""}`}
+            onClick={() => setCurrentIndex(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+            tabIndex={0}
+          >
+            <img src={img} alt={`Preview ${idx}`} />
+          </button>
+        ))}
+      </div>
+      <div className="slideshow-controls" style={{
+        display: "flex",
+        justifyContent: "center",
+        gap: "1rem",
+        marginTop: "1rem",
+      }}>
         <button
           className="slideshow-nav-btn prev"
           onClick={goToPrev}
           aria-label="Previous photo"
         >
-          <NavigateBeforeIcon></NavigateBeforeIcon>
+          <NavigateBeforeIcon />
         </button>
         <button
           className="slideshow-nav-btn next"
           onClick={goToNext}
           aria-label="Next photo"
         >
-          <NavigateNextIcon></NavigateNextIcon>
+          <NavigateNextIcon />
         </button>
       </div>
       <button
@@ -117,8 +117,8 @@ function Slideshow() {
           document.body.removeChild(link);
         }}
       >
-        Download this image <br></br>
-        <DownloadIcon></DownloadIcon>
+        Download this image <br />
+        <DownloadIcon />
       </button>
     </div>
   );
