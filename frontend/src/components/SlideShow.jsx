@@ -25,13 +25,13 @@ function Slideshow() {
 
   // Auto-advance the slideshow every 5 seconds
   useEffect(() => {
-    if (images.length === 0) return;
+    // if (images.length === 0) return;
 
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 10000);
+    // const interval = setInterval(() => {
+    //   setCurrentIndex((prev) => (prev + 1) % images.length);
+    // }, 10000);
 
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, [images]);
 
   if (images.length === 0) {
