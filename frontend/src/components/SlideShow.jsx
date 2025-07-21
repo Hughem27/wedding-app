@@ -67,6 +67,78 @@ function Slideshow() {
           alt={`Slide ${currentIndex}`}
           className="slideshow-image"
           key={currentIndex}
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            // Create overlay for fullscreen image
+            const overlay = document.createElement("div");
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100vw";
+            overlay.style.height = "100vh";
+            overlay.style.background = "#000";
+            overlay.style.zIndex = "9999";
+            overlay.style.display = "flex";
+            overlay.style.alignItems = "center";
+            overlay.style.justifyContent = "center";
+
+            // Create fullscreen image
+            const imgEl = document.createElement("img");
+            imgEl.src = images[currentIndex];
+            imgEl.style.maxWidth = "100vw";
+            imgEl.style.maxHeight = "100vh";
+            imgEl.style.objectFit = "contain";
+            imgEl.style.background = "#000";
+            imgEl.style.cursor = "default";
+
+            // Create back button
+            const backBtn = document.createElement("button");
+            backBtn.innerText = "Back";
+            backBtn.style.position = "absolute";
+            backBtn.style.top = "2rem";
+            backBtn.style.left = "2rem";
+            backBtn.style.padding = "0.7rem 1.5rem";
+            backBtn.style.fontSize = "1.1rem";
+            backBtn.style.background = "#fff";
+            backBtn.style.color = "#b47b4d";
+            backBtn.style.border = "none";
+            backBtn.style.borderRadius = "0.7rem";
+            backBtn.style.boxShadow = "0 2px 8px 0 rgba(31, 38, 135, 0.10)";
+            backBtn.style.cursor = "pointer";
+            backBtn.style.fontWeight = "600";
+            backBtn.onclick = () => document.body.removeChild(overlay);
+
+            // Create download button
+            const downloadBtn = document.createElement("button");
+            downloadBtn.innerText = "Download";
+            downloadBtn.style.position = "absolute";
+            downloadBtn.style.top = "2rem";
+            downloadBtn.style.right = "2rem";
+            downloadBtn.style.padding = "0.7rem 1.5rem";
+            downloadBtn.style.fontSize = "1.1rem";
+            downloadBtn.style.background = "#fff";
+            downloadBtn.style.color = "#b47b4d";
+            downloadBtn.style.border = "none";
+            downloadBtn.style.borderRadius = "0.7rem";
+            downloadBtn.style.boxShadow = "0 2px 8px 0 rgba(31, 38, 135, 0.10)";
+            downloadBtn.style.cursor = "pointer";
+            downloadBtn.style.fontWeight = "600";
+            downloadBtn.onclick = () => {
+              const link = document.createElement("a");
+              link.href = images[currentIndex];
+              link.download =
+                images[currentIndex].split("/").pop() ||
+                `slide-${currentIndex}.jpg`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            };
+
+            overlay.appendChild(imgEl);
+            overlay.appendChild(backBtn);
+            overlay.appendChild(downloadBtn);
+            document.body.appendChild(overlay);
+          }}
         />
       </div>
       {/* Image preview scrollbar */}
